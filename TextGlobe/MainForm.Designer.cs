@@ -78,6 +78,7 @@
             this.findButton.TabIndex = 2;
             this.findButton.Text = "find";
             this.findButton.UseVisualStyleBackColor = true;
+            this.findButton.Click += new System.EventHandler(this.findButton_Click);
             // 
             // resultTextBox
             // 
@@ -123,6 +124,7 @@
             // 
             // MainForm
             // 
+            this.AcceptButton = this.findButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1248, 872);
@@ -138,7 +140,6 @@
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "Text Globe";
-            this.Load += new System.EventHandler(this.MainForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

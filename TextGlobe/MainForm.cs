@@ -13,14 +13,11 @@ namespace TextGlobe
 {
     public partial class MainForm : Form
     {
+        Engine engine = new Engine();
+
         public MainForm()
         {
             InitializeComponent();
-        }
-
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void browse_Click(object sender, EventArgs e)
@@ -37,7 +34,8 @@ namespace TextGlobe
 
         private void scan_Click(object sender, EventArgs e)
         {
-            String extensionsFilter = filtersTextBox.Text;
+            string extensionsFilter = filtersTextBox.Text;
+
             string[] allFiles = Directory.GetFiles(addressTextBox.Text, "*." + extensionsFilter, SearchOption.AllDirectories);
             if (allFiles.Length == 0)
             {
@@ -45,10 +43,10 @@ namespace TextGlobe
                 return;
             }
 
-            foreach(string str in allFiles) {
-                resultTextBox.AppendText(str + "\n");
-            }
+            
+            engine.ScanFiles(allFiles);
             searchTextBox.Enabled = true;
+            resultTextBox.Text = "READY!";
         }
 
         private void addressTextBox_TextChanged(object sender, EventArgs e)
@@ -64,6 +62,20 @@ namespace TextGlobe
         private void searchTextBox_TextChanged(object sender, EventArgs e)
         {
             findButton.Enabled = !string.IsNullOrWhiteSpace(searchTextBox.Text);
+        }
+
+        private void findButton_Click(object sender, EventArgs e)
+        {
+            List<string> results = engine.Query(searchTextBox.Text);
+
+            if (results.Count == 0)
+                resultTextBox.Text = "No results were found";
+            else
+            {
+                resultTextBox.Text = "";
+                foreach (string res in results)
+                    resultTextBox.AppendText(res);
+            }
         }
     }
 }
