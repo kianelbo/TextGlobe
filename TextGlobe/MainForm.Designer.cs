@@ -105,9 +105,9 @@
             // filtersTextBox
             // 
             this.filtersTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.filtersTextBox.Location = new System.Drawing.Point(224, 157);
+            this.filtersTextBox.Location = new System.Drawing.Point(403, 157);
             this.filtersTextBox.Name = "filtersTextBox";
-            this.filtersTextBox.Size = new System.Drawing.Size(725, 53);
+            this.filtersTextBox.Size = new System.Drawing.Size(546, 53);
             this.filtersTextBox.TabIndex = 6;
             this.filtersTextBox.TextChanged += new System.EventHandler(this.filtersTextBox_TextChanged);
             // 
@@ -117,9 +117,9 @@
             this.filtersLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.filtersLabel.Location = new System.Drawing.Point(68, 157);
             this.filtersLabel.Name = "filtersLabel";
-            this.filtersLabel.Size = new System.Drawing.Size(126, 46);
+            this.filtersLabel.Size = new System.Drawing.Size(309, 46);
             this.filtersLabel.TabIndex = 7;
-            this.filtersLabel.Text = "filters:";
+            this.filtersLabel.Text = "extensions filter:";
             // 
             // MainForm
             // 
@@ -134,6 +134,8 @@
             this.Controls.Add(this.findButton);
             this.Controls.Add(this.addressTextBox);
             this.Controls.Add(this.browseButton);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "Text Globe";
             this.Load += new System.EventHandler(this.MainForm_Load);
